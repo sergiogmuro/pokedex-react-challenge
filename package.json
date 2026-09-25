@@ -22,8 +22,6 @@
     "react-router-dom": "^7.18.4",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.5.3",
-    "tsc": "^2.0.4",
-    "typescript": "^7.0.2",
     "yup": "^1.7.1"
   },
   "devDependencies": {
@@ -36,6 +34,7 @@
     "@types/redux-persist": "^4.0.0",
     "@types/styled-components": "^5.1.36",
     "jsdom": "^29.1.1",
+    "typescript": "^7.0.2",
     "vitest": "^4.1.11"
   }
 }
