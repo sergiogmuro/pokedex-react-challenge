@@ -15,7 +15,7 @@ interface CompareFormProps {
       pokemonA: number,
       pokemonB: number,
   ) => void;
-  isChangedHandler: (v) => void;
+  isChangedHandler: (isChanged: boolean) => void;
 }
 
 const validationSchema =

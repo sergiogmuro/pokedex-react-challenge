@@ -6,7 +6,7 @@ import {extractResourceId, getPokemonSpriteUrl, mapPokemonListResponse} from '@/
 import type {
   Generation,
   Pokemon,
-  PokemonType,
+  PokemonTypeResource,
 } from '../types/pokemon';
 
 import type {
@@ -18,7 +18,7 @@ import type {
 } from '../types/api';
 
 import type {
-  PokemonGeneration,
+  PokemonGeneration, PokemonType,
 } from '@/src/types/filters';
 
 export const POKEMON_PAGE_SIZE = 20;
@@ -28,19 +28,16 @@ export const pokemonApi = createApi({
 
   baseQuery: apiClient,
 
-  extractRehydrationInfo(
-      action,
-      {reducerPath},
-  ) {
+  extractRehydrationInfo(action, { reducerPath }): any {
     if (action.type !== REHYDRATE) {
       return undefined;
     }
 
-    if (action.key === 'pokemonApi') {
+    if (action.key === reducerPath) {
       return action.payload;
     }
 
-    return action.payload?.[reducerPath];
+    return undefined;
   },
 
   tagTypes: [

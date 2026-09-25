@@ -34,8 +34,8 @@ export function ComparePage() {
   const isDataReady = Boolean(dataA && dataB);
   const isComparing = !isChanged && (isLoadingA || isLoadingB || isFetchingA || isFetchingB);
 
-  const isChangedHandler = (v) => {
-    setIsChanged(v);
+  const isChangedHandler = (isChanged:boolean) => {
+    setIsChanged(isChanged);
   }
 
   return (

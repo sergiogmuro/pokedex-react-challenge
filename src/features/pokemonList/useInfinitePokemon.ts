@@ -16,7 +16,7 @@ import {
 
 import {useOnlineStatus} from '@/src/hooks/useOnlineStatus';
 
-import type {PokemonFilters} from '@/src/types/filters';
+import type {PokemonFilters, PokemonType} from '@/src/types/filters';
 import type {PokemonListItem} from '@/src/types/pokemon';
 
 const ROOT_MARGIN = '200px 0px';
@@ -152,7 +152,7 @@ export function useInfinitePokemon(
 
   const typesQuery =
       useGetPokemonTypesQuery(
-          filters.types,
+          filters.types as PokemonType[],
           {
             skip:
                 !hasFilters ||

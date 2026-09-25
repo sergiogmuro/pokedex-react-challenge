@@ -47,7 +47,7 @@ export interface Pokemon {
   }>;
 }
 
-export interface PokemonType {
+export interface PokemonTypeResource {
   id?: number;
   name: string;
   url: string;

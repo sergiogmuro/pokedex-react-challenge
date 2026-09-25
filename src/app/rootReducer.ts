@@ -1,10 +1,10 @@
 import {combineReducers} from '@reduxjs/toolkit';
 import {createTransform, persistReducer} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import storage from '@/src/app/webStorage';
 import {pokemonApi} from "@/src/services/pokemonApi";
 import {favoritesReducer} from "@/src/features/favorites/favoritesSlice";
 
-const persistStorage = storage.default ?? storage;
+const persistStorage = storage;
 
 const favoritesPersistConfig = {
   key: 'favorites',
