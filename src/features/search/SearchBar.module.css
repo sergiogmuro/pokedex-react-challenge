@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+
+    background: #0f172a;
+    color: #f8fafc;
+
+    font: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+            border-color 160ms ease,
+            box-shadow 160ms ease,
+            background-color 160ms ease;
+}
+
+.input::placeholder {
+    color: #64748b;
+}
+
+.input:hover {
+    border-color: #334155;
+    background: #111827;
+}
+
+.input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+    background: #0f172a;
+}
+
+.input::-webkit-search-cancel-button {
+    cursor: pointer;
+    filter: invert(0.8);
+}

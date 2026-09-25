@@ -1,0 +1,23 @@
+@import "@/src/styles/global.css";
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin-top: 24px;
+
+    border: 1px dashed #1e293b;
+    border-radius: 16px;
+    background: #0f172a;
+
+    color: #38bdf8;
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}

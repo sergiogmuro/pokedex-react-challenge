@@ -1,0 +1,10 @@
+@import "@/src/styles/global.css";
+
+.layout {
+    min-height: 100vh;
+    background: #0b0f19;
+}
+
+.content {
+    min-height: calc(100vh - 68px);
+}

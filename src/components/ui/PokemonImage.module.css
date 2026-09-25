@@ -1,0 +1,128 @@
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.image {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    transition:
+            opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+            transform 300ms ease;
+}
+
+.loading {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.baseImage {
+    z-index: 1;
+}
+
+.baseImage.loaded {
+    opacity: 1;
+}
+
+.shinyImage {
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container:hover .baseImage.loaded {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.container:hover .shinyImage.loaded {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.placeholder {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #1e293b 0%, rgba(15, 23, 42, 0) 70%);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #1e293b;
+    color: #64748b;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+
+    background: linear-gradient(
+            110deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(56, 189, 248, 0.4) 48%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(56, 189, 248, 0.4) 52%,
+            transparent 60%,
+            transparent 100%
+    );
+
+    background-size: 200% 200%;
+    background-position: -100% center;
+    opacity: 0;
+}
+
+.container:hover::after {
+    animation: imageShimmer 500ms ease-out forwards;
+}
+
+@keyframes imageShimmer {
+    0% {
+        background-position: 200% center;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        background-position: -100% center;
+        opacity: 0;
+    }
+}

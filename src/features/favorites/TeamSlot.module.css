@@ -1,0 +1,189 @@
+.slot {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 280px;
+    padding: 16px;
+
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+
+    background: #0f172a;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.slot:hover {
+    border-color: #334155;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.position {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    background: #1e293b;
+    color: #38bdf8;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: inherit;
+    text-decoration: none;
+}
+
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    margin-top: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.name {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #f8fafc;
+    text-transform: capitalize;
+}
+
+.types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.removeButton {
+    align-self: flex-start;
+    margin-top: 16px;
+    padding: 6px 12px;
+
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+
+    background: rgba(239, 68, 68, 0.08);
+    color: #f87171;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.removeButton:hover {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ffffff;
+}
+
+/* -------------------------------- */
+/* SKELETON LOADERS                 */
+/* -------------------------------- */
+.skeletonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 32px;
+}
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: #1e293b;
+    border-radius: 6px;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+.skeletonImage {
+    height: 100px;
+    border-radius: 12px;
+}
+
+.skeletonNumber {
+    width: 40px;
+    height: 12px;
+}
+
+.skeletonName {
+    width: 100px;
+    height: 20px;
+}
+
+.skeletonBadgeGroup {
+    display: flex;
+    gap: 6px;
+}
+
+.skeletonBadge {
+    width: 50px;
+    height: 20px;
+    border-radius: 999px;
+}
+
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 12px;
+    padding-top: 32px;
+    text-align: center;
+}
+
+.errorText {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}

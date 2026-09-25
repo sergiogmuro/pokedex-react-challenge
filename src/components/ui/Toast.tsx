@@ -1,0 +1,53 @@
+import {useEffect} from 'react';
+
+import styles from './Toast.module.css';
+
+export type ToastVariant =
+    | 'success'
+    | 'error'
+    | 'info';
+
+interface ToastProps {
+  message: string;
+  variant?: ToastVariant;
+  onClose: () => void;
+  duration?: number;
+}
+
+export function Toast(
+    {
+      message,
+      variant = 'info',
+      onClose,
+      duration = 2500,
+    }: ToastProps) {
+  useEffect(() => {
+    const timeout = window.setTimeout(
+        onClose,
+        duration,
+    );
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [onClose, duration]);
+
+  return (
+      <div
+          className={`${styles.toast} ${styles[variant]}`}
+          role="status"
+          aria-live="polite"
+      >
+        <span>{message}</span>
+
+        <button
+            type="button"
+            onClick={onClose}
+            className={styles.close}
+            aria-label="Close notification"
+        >
+          ×
+        </button>
+      </div>
+  );
+}
